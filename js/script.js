@@ -18,11 +18,11 @@ Organizzare i singoli membri in card/schede e rendere la pagina gradevole (potet
 // Creating data container
 
 const teamMembers = [
-{name: 'Wayne Barnett', role: 'Founder & CEO', picture: 'wayne-barnett-founder-ceo.jpg'}, 
-{name: 'Angela Carol', role: 'Chief Editor', picture: 'angela-caroll-chief-editor.jpg'}, {name: 'Walter Gordon', role: 'Office Manager', picture: 'walter-gordon-office-manager.jpg'},
-{name: 'Angela Lopez', role: 'Social Media Manager', picture: 'angela-lopez-social-media-manager.jpg'}, 
-{name: 'Scott Estrada', role: 'Developer', picture: 'scott-estrada-developer.jpg'},
-{name: 'Barbara Ramos', role: 'Graphic Designer', picture: 'barbara-ramos-graphic-designer.jpg'} 
+{name: 'Wayne Barnett', role: 'Founder & CEO', picture: 'img/wayne-barnett-founder-ceo.jpg'}, 
+{name: 'Angela Carol', role: 'Chief Editor', picture: 'img/angela-caroll-chief-editor.jpg'}, {name: 'Walter Gordon', role: 'Office Manager', picture: 'img/walter-gordon-office-manager.jpg'},
+{name: 'Angela Lopez', role: 'Social Media Manager', picture: 'img/angela-lopez-social-media-manager.jpg'}, 
+{name: 'Scott Estrada', role: 'Developer', picture: 'img/scott-estrada-developer.jpg'},
+{name: 'Barbara Ramos', role: 'Graphic Designer', picture: 'img/barbara-ramos-graphic-designer.jpg'} 
 ];
 
 ////console.table(teamMembers);
@@ -31,6 +31,12 @@ const teamMembers = [
 
 const teamCardsHolder = document.getElementById('team-cards-holder');
 ////console.log(teamCardsHolder);
+const form = document.getElementById('add-team');
+const inputName = document.getElementById('name');
+const inputSurname = document.getElementById('surname');
+const inputRole = document.getElementById('role');
+const inputPicture = document.getElementById('picture');
+
 
 //Card creation function
 
@@ -39,7 +45,7 @@ const createCard = (name, role, picture) => {
     `
     <div class="col">
         <div class="card mb-5">
-            <img class="card-img-top" src="img/${picture}" alt="Card image cap">
+            <img class="card-img-top" src="${picture}" alt="Card image cap">
             <div class="card-body text-center cs-text-gray">
             <h4>${name}</h4>
             <h6>${role}</h6>
@@ -50,14 +56,48 @@ const createCard = (name, role, picture) => {
     return card;
 }
 
-//Preparing cards
+//add member function
+const addMember = (list, nameSurname, role, picture) => {
+
+    const member = {
+        name: nameSurname, role: role, picture: picture}
+
+    list.push(member);
+
+}
+
+//add cards function
+const addCards = () => {
 let cards = '';
 
 for (let teamMember of teamMembers){
     const card = createCard(teamMember.name, teamMember.role, teamMember.picture);
     cards += card;
 }
+    return cards
+}
 
+const cards = addCards();
 //Show cards on page
-
 teamCardsHolder.innerHTML = cards;
+
+//display new card when submit
+form.addEventListener("submit", function(event){
+    
+    event.preventDefault();
+
+    const nameSurname = inputName.value + " " + inputSurname.value;
+    const role = inputRole.value;
+    let picture = inputPicture.value;
+
+    if (!picture){
+        picture = 'img/anon.png'
+    }
+
+    addMember(teamMembers, nameSurname, role, picture);
+    const cards = addCards();
+    console.log(cards);
+    teamCardsHolder.innerHTML = cards;
+    
+
+})

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta role="viewport" content="width=device-width, initial-scale=1.0">
     <!-- BOOTSTRAP -->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css' integrity='sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==' crossorigin='anonymous'/>
     <!-- STYLESHEET -->
@@ -18,6 +18,20 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores autem, eum suscipit doloribus architecto voluptate vero quaerat distinctio.</p>
         </div>
         <div id="team-cards-holder" class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+        </div>
+        <div class="row">
+            <form id="add-team" class="col d-flex flex-column align-items-center">
+                <h3 class="mb-3">ENTRA NEL TEAM</h3>
+                <label for="name">Inserisci il tuo nome</label>
+                <input type="text" name="name" id="name" class="mb-3" required>
+                <label for="surname">Inserisci il tuo cognome</label>
+                <input type="text" name="surname" id="surname" class="mb-3" required>
+                <label for="role">Inserisci il tuo ruolo</label>
+                <input type="text" name="role" id="role" class="mb-3" required>
+                <label for="picture">Inserisci il link immagine</label>
+                <input type="text" name="picture" id="picture" class="mb-3">
+                <button class="btn btn-primary">Aggiungi</button>
+            </form>
         </div>
     </main>
     <script src="js/script.js"></script>
