@@ -25,12 +25,12 @@ const teamMembers = [
 {name: 'Barbare Ramos', role: 'Graphic Designer', picture: 'barbara-ramos-graphic-designer.jpg'} 
 ];
 
-console.table(teamMembers);
+////console.table(teamMembers);
 
 //Pick target element
 
 const teamCardsHolder = document.getElementById('team-cards-holder');
-console.log(teamCardsHolder);
+////console.log(teamCardsHolder);
 
 //Card creation function
 
