@@ -31,3 +31,18 @@ console.table(teamMembers);
 
 const teamCardsHolder = document.getElementById('team-cards-holder');
 console.log(teamCardsHolder);
+
+//Card creation function
+
+const createCard = (name, role, picture) => {
+    const card = 
+    `<div class="card mb-5">
+        <img class="card-img-top" src="img/${picture}" alt="Card image cap">
+        <div class="card-body text-center cs-text-gray">
+        <h4>${name}</h4>
+        <h6>${role}</h6>
+        </div>
+    </div>`;
+    return card;
+}
+
