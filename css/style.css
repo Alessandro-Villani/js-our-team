@@ -1,0 +1,32 @@
+/*TODO REMOVE*/
+
+.debug{
+    border: 1px dashed black;
+}
+
+
+/*! CUSTOM PROPERTIES */
+
+:root{
+    --background-color: rgb(245,245,241);
+    --text-gray: rgb(105,100,93);
+}
+
+/*! GENERICS */
+
+body{
+    background-color: var(--background-color);
+}
+
+/*! UTILS */
+
+.cs-text-gray{
+    color: var(--text-gray);
+}
+
+/*! MAIN */
+
+main .card img, main .card{
+    border-radius: 0;
+}
+
