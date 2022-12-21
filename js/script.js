@@ -36,13 +36,28 @@ console.log(teamCardsHolder);
 
 const createCard = (name, role, picture) => {
     const card = 
-    `<div class="card mb-5">
-        <img class="card-img-top" src="img/${picture}" alt="Card image cap">
-        <div class="card-body text-center cs-text-gray">
-        <h4>${name}</h4>
-        <h6>${role}</h6>
+    `
+    <div class="col">
+        <div class="card mb-5">
+            <img class="card-img-top" src="img/${picture}" alt="Card image cap">
+            <div class="card-body text-center cs-text-gray">
+            <h4>${name}</h4>
+            <h6>${role}</h6>
+            </div>
         </div>
-    </div>`;
+    </div>
+    `;
     return card;
 }
 
+//Preparing cards
+let cards = '';
+
+for (let teamMember of teamMembers){
+    const card = createCard(teamMember.name, teamMember.role, teamMember.picture);
+    cards += card;
+}
+
+//Show cards on page
+
+teamCardsHolder.innerHTML = cards;
